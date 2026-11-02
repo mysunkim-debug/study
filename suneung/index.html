@@ -205,6 +205,19 @@
   .c-unit[hidden] { display: none; }
   .c-words { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 3px 16px; font-size: 15px; }
   .c-words b { color: var(--sec); margin-right: 4px; }
+  .c-rel { color: var(--sec); font-size: 1.15em; }  /* 29번 관계사: 조건(형광펜)과 구별 */
+  .c-table { width: 100%; border-collapse: collapse; font-size: 14px; text-align: center; line-height: 1.3; }
+  .c-table th, .c-table td { border: 1px solid var(--line); padding: 5px 2px; }
+  .c-table thead th { background: var(--primary-soft); }
+  .c-table tbody th { font-weight: bold; color: var(--muted); }
+  .c-table td small { display: block; font-size: 12px; color: var(--muted); }
+  .c-t-legend { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; font-size: 13px; }
+  .c-t-legend span { border-radius: 6px; padding: 1px 8px; }
+  .t-v { background: color-mix(in srgb, var(--sec-art) 18%, var(--card)); }
+  .t-rel { background: color-mix(in srgb, var(--sec-det) 18%, var(--card)); }
+  .t-ving { background: color-mix(in srgb, var(--accent) 18%, var(--card)); }
+  .t-pron { background: color-mix(in srgb, var(--sec-pron) 18%, var(--card)); }
+  .t-part { background: color-mix(in srgb, var(--star) 30%, var(--card)); }
   .c-dot { color: var(--text); font-size: 22px; line-height: 0; margin: 0 2px; }
   .print-only { display: none; }
   .c-sec { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin-bottom: 12px; box-shadow: var(--shadow); }
@@ -291,6 +304,7 @@
     .c-ex, .c-tip, .c-head-row, .c-pair { break-inside: avoid; }
     .c-sec h3, .c-head, .c-box-title { break-after: avoid; }
     .c-units { display: none !important; }
+    .c-table { break-inside: avoid; }
     .copy { margin-top: 10px; }
   }
 </style>
@@ -364,6 +378,7 @@
         <button data-u="1" class="on">1. 지시어</button>
         <button data-u="2">2. 연결어</button>
         <button data-u="3">3. 자동사</button>
+        <button data-u="4">4. 29번 어법</button>
       </div>
       <button id="printBtn" title="보고 있는 단원 인쇄하기">🖨️ 인쇄</button>
     </div>
@@ -871,6 +886,155 @@
         <div class="c-box">
           <div class="c-box-title">수능 자·타 둘 다 (20)</div>
           <div class="c-words" data-jd="자·타 둘 다"></div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- 4. 29번 어법 -->
+    <div class="c-unit" data-u="4" hidden>
+    <h2>4. 29번 어법 <span class="c-h3-note">실전 풀이 순서</span></h2>
+    <div class="c-tip">
+      <b>💡 출제 경향</b> (2017~2027 평가원) <b>동사 11회 / 관계사 11회</b> / 준동사 5회 / 대명사 2회 / 분사 2회<br>
+      동사와 준동사는 결국 <b>"이 문장에 동사가 몇 개인가"</b>를 묻는 문제라, 둘을 합치면 가장 자주 나와요.
+      <div class="c-legend">밑줄 친 부분을 보고 아래 (1)~(7) 중 어떤 유형인지 먼저 정하세요.</div>
+    </div>
+
+    <div class="c-sec">
+      <h3>역대 평가원 29번 기출 정답 <span class="c-h3-note">정답 (헷갈리게 한 것)</span></h3>
+      <table class="c-table">
+        <thead><tr><th></th><th>6모</th><th>9모</th><th>수능</th></tr></thead>
+        <tbody>
+          <tr><th>2017</th><td class="t-part">Ving 능동<small>p.p. 수동</small></td><td>ABC<small>형/부, 관대, 분사구문</small></td><td class="t-v">V<small>수일치</small></td></tr>
+          <tr><th>2018</th><td class="t-v">V<small>병렬</small></td><td class="t-v">V<small>준동사</small></td><td class="t-rel">what<small>that</small></td></tr>
+          <tr><th>2019</th><td class="t-v">V<small>병렬</small></td><td class="t-rel">what<small>that</small></td><td class="t-v">V<small>대동사</small></td></tr>
+          <tr><th>2020</th><td class="t-pron">that<small>it</small></td><td class="t-ving">Ving<small>동사</small></td><td class="t-part">p.p. 수동<small>Ving 능동</small></td></tr>
+          <tr><th>2021</th><td class="t-ving">Ving<small>동사</small></td><td class="t-rel">which<small>where</small></td><td class="t-rel">what<small>that</small></td></tr>
+          <tr><th>2022</th><td class="t-v">V<small>병렬</small></td><td class="t-rel">which<small>that</small></td><td class="t-rel">what<small>that</small></td></tr>
+          <tr><th>2023</th><td class="t-rel">which<small>whose</small></td><td class="t-v">V<small>준동사</small></td><td class="t-pron">them<small>재귀대명사</small></td></tr>
+          <tr><th>2024</th><td class="t-ving">Ving<small>동사</small></td><td class="t-ving">Ving<small>동사</small></td><td class="t-rel">which<small>with which</small></td></tr>
+          <tr><th>2025</th><td class="t-v">V<small>수동태</small></td><td class="t-rel">whose<small>which</small></td><td class="t-v">V<small>수일치</small></td></tr>
+          <tr><th>2026</th><td class="t-v">V<small>준동사</small></td><td class="t-rel">which<small>where</small></td><td class="t-ving">Ving<small>동사</small></td></tr>
+          <tr><th>2027</th><td class="t-rel">what<small>which</small></td><td class="t-v">V<small>수일치</small></td><td>11/19</td></tr>
+        </tbody>
+      </table>
+      <div class="c-t-legend"><span class="t-v">동사 V 11</span><span class="t-rel">관계사 11</span><span class="t-ving">준동사 Ving 5</span><span class="t-pron">대명사 2</span><span class="t-part">분사 능동/수동 2</span></div>
+    </div>
+
+    <div class="c-sec sec-det">
+      <h3><span class="c-num">(1)</span> 관계사 <span class="c-h3-note">앞에 명사가 있나? 뒤 문장이 완전한가?</span></h3>
+      <div class="c-item">
+        <ol class="c-list">
+          <li><span class="c-no">①</span><span class="c-key">명사 O</span> + <b class="c-rel en">which</b> + <span class="c-key">불완전한 문장</span>
+            <div class="c-ex">
+              <p class="en">This is the book <b>which</b> I borrowed ___ from the library.</p>
+              <p class="ko">이것은 내가 도서관에서 빌린 책이다. <span class="c-paren">→ borrowed의 목적어가 빠짐</span></p>
+            </div>
+          </li>
+          <li><span class="c-no">②</span><span class="c-key">명사 O</span> + <b class="c-rel en">in which (where)</b> + <span class="c-key">완전한 문장</span>
+            <div class="c-ex">
+              <p class="en">This is the house <b>in which</b> <span class="c-paren">(<s>which</s>)</span> I grew up.</p>
+              <p class="ko">이곳은 내가 자란 집이다. <span class="c-paren">→ I grew up은 완전한 문장 (3. 자동사 ① 참고)</span></p>
+            </div>
+          </li>
+          <li><span class="c-no">③</span><span class="c-key">명사 X</span> + <b class="c-rel en">what</b> + <span class="c-key">불완전한 문장</span>
+            <div class="c-ex">
+              <p class="en"><b>What</b> <span class="c-paren">(<s>That</s>)</span> you need ___ is enough sleep.</p>
+              <p class="ko">네게 필요한 것은 충분한 잠이다. <span class="c-paren">→ 앞에 명사 없음 + need의 목적어가 빠짐</span></p>
+            </div>
+          </li>
+          <li><span class="c-no">④</span><b class="c-rel en">that</b>은 쓰임이 여러 가지 → <b>정답일 확률이 낮아요</b>
+            <div class="c-desc">관계대명사, 접속사, 지시어 등으로 다 쓰여서 틀리게 만들기 어려워요. 다만 <b>쉼표 뒤·전치사 뒤의 that</b>은 틀린 표현이에요.</div>
+          </li>
+        </ol>
+        <div class="c-paren">※ 기출에는 <b class="en">whose</b>도 나왔어요: whose + 명사 + 완전한 문장 (The girl <b>whose</b> bag was stolen …)</div>
+      </div>
+    </div>
+
+    <div class="c-sec sec-art">
+      <h3><span class="c-num">(2)</span> 동사 vs 준동사 <span class="c-h3-note">to V, Ving, Ved</span></h3>
+      <div class="c-item">
+        <div class="c-key">주어 하나 & 동사 하나 확인!</div>
+        <div class="c-desc">접속사·관계사가 없으면 한 문장에 동사는 <b>하나</b>예요. 이미 동사가 있으면 밑줄은 준동사, 동사가 없으면 밑줄은 동사여야 해요.</div>
+        <div class="c-ex">
+          <p class="en">People <b>living</b> <span class="c-paren">(<s>live</s>)</span> near the sea <u>enjoy</u> fresh fish.</p>
+          <p class="ko">바닷가 근처에 사는 사람들은 신선한 생선을 즐긴다. <span class="c-paren">→ 동사 enjoy가 이미 있음 → 준동사</span></p>
+        </div>
+        <div class="c-ex">
+          <p class="en">The students who sat in the front row <b>asked</b> <span class="c-paren">(<s>asking</s>)</span> many questions.</p>
+          <p class="ko">앞줄에 앉은 학생들이 질문을 많이 했다. <span class="c-paren">→ sat은 who절의 동사, 문장의 동사가 없음 → 동사</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-sec sec-art">
+      <h3><span class="c-num">(3)</span> 수일치 <span class="c-h3-note">Vs</span></h3>
+      <div class="c-item">
+        <div class="c-key">수식어를 걷어내고 진짜 주어 찾기</div>
+        <div class="c-desc">주어가 <b>단수 명사</b>면 Vs. 주어가 <b>Ving(동명사)</b>여도 단수예요.</div>
+        <div class="c-ex">
+          <p class="en">The key <u>to all these problems</u> <b>is</b> <span class="c-paren">(<s>are</s>)</span> patience.</p>
+          <p class="ko">이 모든 문제를 푸는 열쇠는 인내심이다. <span class="c-paren">→ 주어는 The key (밑줄 = 수식어)</span></p>
+        </div>
+        <div class="c-ex">
+          <p class="en">Reading many books <b>helps</b> <span class="c-paren">(<s>help</s>)</span> you think deeply.</p>
+          <p class="ko">책을 많이 읽는 것은 깊이 생각하도록 도와준다. <span class="c-paren">→ Ving 주어 = 단수</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-sec sec-art">
+      <h3><span class="c-num">(4)</span> 병렬</h3>
+      <div class="c-item">
+        <div class="c-key">동사·준동사 앞에 and (but)가 있으면 → 짝 확인!</div>
+        <div class="c-ex">
+          <p class="en">She <u>opened</u> the window and <b>took</b> <span class="c-paren">(<s>taking</s>)</span> a deep breath.</p>
+          <p class="ko">그녀는 창문을 열고 숨을 깊이 들이쉬었다. <span class="c-paren">→ opened와 짝 (둘 다 동사)</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-sec sec-art">
+      <h3><span class="c-num">(5)</span> 대동사</h3>
+      <div class="c-item">
+        <div class="c-key"><span class="en">is (was), do (does)</span>에 밑줄 → 앞의 어떤 동사를 대신하나?</div>
+        <div class="c-desc">앞 동사가 <b>be동사면 be</b>, <b>일반동사면 do</b>로 받아요. 수·시제도 맞춰요.</div>
+        <div class="c-ex">
+          <p class="en">Dogs <u>need</u> more exercise than cats <b>do</b> <span class="c-paren">(<s>are</s>)</span>.</p>
+          <p class="ko">개는 고양이보다 운동이 더 필요하다. <span class="c-paren">→ do = need (일반동사)</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-sec sec-pron">
+      <h3><span class="c-num">(6)</span> 대명사 <span class="c-h3-note">it, they, their, themselves …</span></h3>
+      <div class="c-item">
+        <div class="c-key">가리키는 대상 확인!</div>
+        <div class="c-desc"><b>단수·복수</b>를 맞추고, 주어와 <b>같은 대상</b>이면 재귀대명사(-self, -selves)를 써요. (1. 지시어 참고)</div>
+        <div class="c-ex">
+          <p class="en"><u>The children</u> were proud of <b>themselves</b> <span class="c-paren">(<s>them</s>)</span>.</p>
+          <p class="ko">아이들은 스스로가 자랑스러웠다. <span class="c-paren">→ 주어와 같은 대상 → 재귀대명사</span></p>
+        </div>
+        <div class="c-ex">
+          <p class="en"><u>Plants</u> need water, but too much of it can harm <b>them</b> <span class="c-paren">(<s>it</s>)</span>.</p>
+          <p class="ko">식물은 물이 필요하지만, 너무 많은 물은 식물을 해칠 수 있다. <span class="c-paren">→ them = Plants (복수)</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-sec sec-pron">
+      <h3><span class="c-num">(7)</span> 능동 vs 수동 <span class="c-h3-note">Ving / Ved</span></h3>
+      <div class="c-item">
+        <div class="c-key">해석 필요!</div>
+        <div class="c-desc">꾸밈을 받는 명사가 <b>"~하는"</b>이면 Ving(능동), <b>"~되는, ~된"</b>이면 Ved(수동)예요.
+          동사 자리도 같아요. 주어가 "~되는" 것이면 <b>be + p.p.</b>(수동태)예요.</div>
+        <div class="c-ex">
+          <p class="en">the boy <b>wearing</b> <span class="c-paren">(<s>worn</s>)</span> a cap</p>
+          <p class="ko">모자를 쓰고 있는 소년 <span class="c-paren">→ 소년이 쓰는 것 → 능동</span></p>
+        </div>
+        <div class="c-ex">
+          <p class="en">a letter <b>written</b> <span class="c-paren">(<s>writing</s>)</span> in English</p>
+          <p class="ko">영어로 쓰인 편지 <span class="c-paren">→ 편지가 쓰인 것 → 수동</span></p>
         </div>
       </div>
     </div>
