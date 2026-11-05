@@ -141,7 +141,7 @@
   .card-ex .exko + .en { margin-top: 8px; }
   /* 카드 내용이 길면 위가 잘리지 않고 스크롤되게 (가운데 정렬은 유지) */
   .face > .say + * { margin-top: auto; }
-  .face > :last-child { margin-bottom: auto; }
+  .face::after { content: ""; margin-top: auto; }  /* 번호·🔊·안내 글자는 위치가 고정이라, 빈 칸을 위아래로 똑같이 나눈다 */
   .q-ex { margin-top: 6px; font-size: 15px; }
   .word .extra { grid-column: 2 / 4; font-size: 14px; color: var(--muted); white-space: pre-line; }
   .word .src { grid-column: 2 / 4; font-size: 14px; color: var(--muted); white-space: pre-line; border-top: 1px dashed var(--line); padding-top: 6px; margin-top: 2px; }
@@ -164,7 +164,7 @@
   .face {
     position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
     background: var(--card); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow);
-    display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 36px 20px 20px; text-align: center; overflow: auto;  /* 위 36px: 번호·🔊와 겹치지 않게 */
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 36px 20px; text-align: center; overflow: auto;  /* 위 36px: 번호·🔊와 겹치지 않게, 아래도 같게 해서 가운데로 */
   }
   .face.back { transform: rotateY(180deg); background: var(--primary-soft); }
   .face .big { font-size: 40px; font-weight: bold; line-height: 1.2; word-break: break-word; }
