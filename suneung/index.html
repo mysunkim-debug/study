@@ -205,7 +205,7 @@
   .c-unit[hidden] { display: none; }
   .c-words { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 3px 16px; font-size: 15px; }
   .c-words b { color: var(--sec); margin-right: 4px; }
-  /* 선지 단어 */
+  /* 핵심어휘 */
   .sj-check { margin: 6px 0 0; padding-left: 22px; }
   .sj-check li { margin: 2px 0; }
   .sj-up, .sj-down { display: inline-flex; align-items: center; justify-content: center; width: 1.25em; height: 1.25em; border: 1.5px solid currentColor; border-radius: 50%; line-height: 1; vertical-align: -1px; }
@@ -330,9 +330,9 @@
 <body>
 <header>
   <div class="head-in">
-    <h1>📘 수능 영어 어휘 <span class="by">by Sunny</span> <small>중요단어(선지, 고빈출, 자동사) + 개념 <span class="nocopy">무단 복제·배포 금지</span></small></h1>
+    <h1>📘 수능 영어 어휘 <span class="by">by Sunny</span> <small>중요단어(핵심어휘, 고빈출, 자동사) + 개념 <span class="nocopy">무단 복제·배포 금지</span></small></h1>
     <nav class="tabs" role="tablist">
-      <button data-tab="sj">선지 단어</button>
+      <button data-tab="sj">핵심어휘</button>
       <button data-tab="list" class="on">단어장</button>
       <button data-tab="card">카드</button>
       <button data-tab="quiz">퀴즈</button>
@@ -356,16 +356,16 @@
   </div>
 
   <!-- 단어장 -->
-  <!-- 선지 단어 -->
+  <!-- 핵심어휘 -->
   <section id="tab-sj" class="concept" hidden>
     <div class="c-tip">
-      <b>💡 선지 단어, 이렇게 보세요</b> 오답은 엉뚱한 말보다 <b>본문을 살짝 비튼 말</b>일 때가 많아요. 선지를 다 번역하기 전에 세 가지만 먼저 보세요.
+      <b>💡 핵심어휘: 선지에서 정답을 가르는 단어</b><br>오답은 엉뚱한 말보다 <b>본문을 살짝 비튼 말</b>일 때가 많아요. 선지를 다 번역하기 전에 세 가지만 먼저 보세요.
       <ol class="sj-check">
         <li><b>방향</b> 본문과 방향이 같은가? (올리기 <b class="sj-up">+</b> ↔ 내리기 <b class="sj-down">−</b>, 변화 ↔ 유지)</li>
         <li><b>세기</b> 본문보다 세게 말하지 않았나? (일부 → 전부, 그럴 수도 → 반드시)</li>
         <li><b>관계</b> 원인과 결과가 뒤바뀌지 않았나?</li>
       </ol>
-      <div class="c-legend">표현은 2024~2027학년도 평가원 시험지에서 찾았어요. <span class="sj-src su">수능</span> 표시는 수능에 나온 표현, "선지"는 문제의 보기에 나온 표현이에요. <span class="sj-src">만든 예시</span>는 이 시험지들에 없어서 새로 만든 표현이에요.</div>
+      <div class="c-legend">표현은 2024~2027학년도 평가원 시험지에서 찾았어요. <span class="sj-src su">수능</span> 표시는 수능에 나온 표현, "선지"는 문제의 보기에 나온 표현이에요.</div>
     </div>
     <div class="c-units sj-groups" id="sjGroups"></div>
     <div class="sj-tools"><label><input type="checkbox" id="sjSu"> 수능에 나온 단어만</label><button id="sjHide">뜻 가리기</button><span class="sj-count" id="sjCount"></span></div>
@@ -1706,7 +1706,7 @@ const JD = [
 [48,"write","(자) 쓰다 / (타) ~을 쓰다","자타","(자) One can write for oneself.\n(타) I sat down to write an article.","(자) 우리는 우리 자신을 위해 글을 쓸 수 있다.\n(타) 나는 기사를 쓰기 위해 앉았다.","(자) 2023학년도 수능 21번\n(타) 2022학년도 6평 21번"]];
 
 
-// 선지 단어. 한 줄 = [번호, "단어", "뜻", "품사", "묶음", "기출 표현", "해석", "출처"]
+// 핵심어휘. 한 줄 = [번호, "단어", "뜻", "품사", "묶음", "기출 표현", "해석", "출처"]
 // 표현·해석·출처는 \n으로 줄을 맞춘다 (수능이 먼저). 표현은 평가원 시험지에서 확인한 것만 넣는다.
 // 기록은 번호로 연결된다(id = s+번호). 줄을 옮겨도 번호는 바꾸지 말고, 새 단어는 다음 번호로. 화면 번호는 줄 순서로 매겨진다
 const SJ = [
@@ -1725,6 +1725,7 @@ const SJ = [
 [13,"benefit","이득, 이득을 주다","명,동","올리기","Its Unexpected Benefits\nmaximize financial benefits","그것의 뜻밖의 이점\n재정적 이익을 극대화하다","26수능 24번 선지\n24수능 23번 선지"],
 [14,"contribute","기여하다, 보탬이 되다, 한몫하다","동","올리기","does not contribute to the creation\ncontribute to our understanding","만들어 내는 데 보탬이 되지 않는다\n우리의 이해에 보탬이 되다","24수능 20번\n26.6모 39번"],
 [15,"reduce","줄이다","동","내리기","reduced absenteeism\nReduced Roles of Tour Operators","줄어든 결근\n여행사의 줄어든 역할","26수능 33번\n27.6모 24번 선지"],
+[120,"decline","감소, 쇠퇴, 감소하다, 거절하다","명,동","내리기","decline of reliability in the ads of natural foods\nsudden decline of photography\nappear to be in decline\nmust decline your invitation","천연 식품 광고의 신뢰도 하락\n사진의 갑작스러운 쇠퇴\n쇠퇴하고 있는 것처럼 보이다\n초대를 거절해야 한다","25.6모 23번 선지\n25.6모 16번 선지\n25.6모 20번\n27.9모 18번"],
 [16,"limit","제한하다, 한계","동,명","내리기","greatly limiting the number of people\nlimits of animals’ decision making","사람 수를 크게 제한하는 것\n동물 의사 결정의 한계","25수능 38번\n27.6모 23번 선지"],
 [111,"lack","부족, 결여, 부족하다","명,동","내리기","a lack of evidence\na lack of sophistication or seriousness\nLack of sufficient physical activity\nperceived as lacking order\nseemed to lack energy","증거의 부족, 결여 (감소가 아니라 없거나 모자람)\n세련됨이나 진지함의 결여\n충분한 신체 활동의 부족\n질서가 결여되었다고 여겨지는\n기운이 부족해 보였다","만든 예시\n26.6모 38번\n26.6모 36번\n27.9모 39번\n27.9모 43~45번"],
 [17,"prevent","막다, 방지하다, 못 하게 막다","동","내리기","prevents a student from accomplishing\nprevent people from playing baseball","학생이 해내지 못하게 막는다\n사람들이 야구를 못 하게 막다","25수능 20번\n25수능 34번"],
@@ -1752,8 +1753,12 @@ const SJ = [
 [47,"remain","남아 있다, 그대로 있다","동","유지","remain irreconcilable\nremain zoomed in for too long","화해할 수 없는 채로 남다\n너무 오래 확대된 채로 있다","24수능 34번\n26.6모 33번 선지"],
 [48,"maintain","유지하다, 같은 상태로 계속 지키다","동","유지","desire to maintain good relationships\nmaintain the ideal conditions","좋은 관계를 유지하려는 욕구\n이상적인 조건을 유지하다","25수능 30번\n24수능 35번"],
 [113,"sustain","지속하다, 유지하다, 끊기지 않게 이어 가다","동","유지","the institutions which sustain them\nsustain national productivity\nimportance of rewards in sustaining motivation","그것들을 지탱해 주는 기관들\n국가 생산성을 유지하다\n동기를 유지하는 데 있어 보상의 중요성","26수능 40번\n27.9모 20번\n27.9모 23번 선지"],
+[115,"retain","유지하다, 계속 간직하다","동","유지","retain their power of fascination\nretained in simplified forms\nlearn and retain more","그들의 매력을 유지하다\n단순한 형태로 유지되는\n더 많이 배우고 기억하다","26수능 40번\n24수능 40번\n27.9모 22번"],
 [49,"preserve","보존하다, 상하지 않게 지켜 두다","동","유지","preserving more time","더 많은 시간을 지켜 내는 것","24수능 41~42번"],
 [114,"conserve","보존하다, 아끼다, 아껴서 지켜 두다 (conservation: 보존)","동","유지","conserving mental effort\nmarine ecosystem conservation\nemphasize conservation’s restorative","정신적 노력을 아끼는 것\n해양 생태계 보존\n보존의 복원적 측면을 강조하다","25.9모 30번\n26.9모 28번\n27.6모 31번"],
+[116,"stable","안정된 (↔ unstable: 불안정한)","형","유지","economically unstable\nstability","경제적으로 불안정한\n안정성","26수능 40번\n26수능 40번 선지"],
+[117,"consistent","일관된, 한결같은","형","유지","consistently demonstrating\nmatched consistently","일관되게 보여 주는\n일관되게 들어맞는","25수능 36번\n24수능 33번 선지"],
+[118,"constant","끊임없는, 변함없는","형","유지","constantly reacting\nconstant effort","끊임없이 반응하는\n끊임없는 노력","25수능 32번\n26.6모 21번 선지"],
 [28,"eliminate","제거하다, 아예 없애다","동","세기","every business wants to eliminate","모든 기업이 없애고 싶어 한다","26.9모 20번"],
 [29,"exclude","빼 버리다 (↔ include: 포함하다)","동","세기","not to be excluded from the group","집단에서 배제되지 않기 위해","27.9모 31번"],
 [30,"ignore","무시하다, 못 본 척 넘기다","동","세기","largely been ignored\nignoring a valuable tool","대체로 무시되어 왔다\n귀중한 도구를 무시하는 것","26수능 20번\n25수능 20번"],
@@ -1763,29 +1768,30 @@ const SJ = [
 [34,"determine","결정하다, 결과를 정해 버리다","동","세기","determine the behavior\ndetermine their attitudes","행동을 정하다\n그들의 태도를 결정하다","25수능 34번\n27.6모 20번"],
 [35,"dominate","압도하다, 지배하다","동","세기","stories clearly dominate statistics\ndominated by the exposition","이야기가 통계를 분명히 압도한다\n그 노출에 지배되는","26수능 38번\n24수능 34번"],
 [36,"isolate","고립시키다, 분리하다, 떼어 내 따로 두다","동","세기","held isolated from the social\nFigures Be Isolated","사회적인 것으로부터 떨어져 있는\n인물들이 격리되어야","24수능 33번\n26.9모 24번 선지"],
-[87,"only","단지, 오직","부","범위와 정도","would only serve to divide audiences\nnot only increased","관객을 더 나누는 결과만 낳을 것이다\n늘렸을 뿐만 아니라","26수능 24번\n27.9모 22번"],
-[88,"all","모두, 전부","형,명","범위와 정도","all of your attention\nAll-or-nothing criteria","당신의 모든 주의\n전부 아니면 전무인 기준","25수능 33번 선지\n25.6모 21번 선지"],
-[93,"always","언제나","부","범위와 정도","not always the case\nAlways Take Priority","항상 그런 것은 아닌\n항상 우선하다","25수능 40번\n25.6모 41~42번 선지"],
-[94,"never","한 번도 ~않다","부","범위와 정도","never being confronted with\nnever threaten the reader’s sense","결코 마주하지 않는 것\n독자의 감각을 결코 위협하지 않는다","24수능 21번 선지\n27.9모 33번"],
-[89,"entirely","전적으로, 하나도 빠짐없이","부","범위와 정도","remove a new pest entirely\nentirely on their own","새로운 해충을 완전히 없애다\n전적으로 혼자서","27.9모 30번\n27.6모 36번"],
-[90,"completely","완전히, 남김없이 온전히","부","범위와 정도","completely without your awareness\ndisappear completely","당신이 전혀 알아차리지 못한 채\n완전히 사라지다","25수능 29번\n26.6모 35번"],
-[91,"exclusively","오로지, 오직 그것만","부","범위와 정도","focus exclusively on test scores","오직 시험 점수에만 집중하다","만든 예시"],
-[92,"universally","보편적으로, 어디서나 예외 없이","부","범위와 정도","almost universally accept","거의 모두가 받아들이다","25수능 20번"],
-[95,"generally","대개, 일반적으로","부","범위와 정도","generally associated with\ngenerally less noticeable","일반적으로 ~와 관련된\n대개 덜 눈에 띄는","25수능 30번\n27.9모 32번"],
-[96,"largely","대부분, 주로","부","범위와 정도","largely been ignored\nlargely in the business of","대체로 무시되어 왔다\n주로 ~하는 사업을 하는","26수능 20번\n27.6모 24번"],
-[97,"primarily","무엇보다 주로","부","범위와 정도","perceiving primarily through interaction\nprimarily conducted","주로 상호작용을 통해 인식하는 것\n주로 수행된","26수능 39번\n25.9모 21번"],
-[99,"relatively","상대적으로, 다른 것에 비해","부","범위와 정도","relatively remote locations","비교적 외딴 곳","25수능 35번"],
-[98,"partly","부분적으로, 일부만","부","범위와 정도","partly responsible for the problem","그 문제에 일부 책임이 있는","만든 예시"],
-[100,"gradually","점진적으로, 조금씩 차츰","부","범위와 정도","gradually take fuller ownership","차츰 더 온전한 주도권을 갖다","27.6모 20번"],
-[101,"immediately","바로, 곧장","부","범위와 정도","Mia immediately shook her head\nacting immediately","Mia는 바로 고개를 저었다\n바로 행동하는 것","26수능 43~45번\n27.9모 32번 선지"],
-[112,"include","안에 넣다, 포함하다 (↔ exclude: 제외하다)","동","범위와 정도","Consequences of this emotional state include lower task motivation\nincluding climate regulation, water purification\nincluding biodiversity","이 감정 상태의 결과에는 더 낮은 과제 동기가 포함된다\n기후 조절과 수질 정화를 포함하여\n생물 다양성을 포함하여","25수능 30번\n24수능 23번\n27.9모 38번"],
-[108,"significant","무시 못 할 만큼 큰, 중요한","형","범위와 정도","significant changes\nless significant","상당한 변화\n덜 중요한","27.9모 20번\n27.9모 24번"],
-[102,"possible","가능한, 그럴 수도 있는","형","가능성과 필요","the innovations made possible\nIt’s possible, indeed likely\nconflicts possible within a group","가능해진 혁신\n가능하다, 아니 실은 그럴 가능성이 높다\n집단 안에서 있을 수 있는 갈등","24수능 31번\n25.9모 22번\n26.9모 32번 선지"],
-[103,"likely","가능성이 높은, 그럴 것 같은","형","가능성과 필요","are most likely related\nPeople are likely to be more satisfied","관련되어 있을 가능성이 가장 높다\n사람들은 더 만족할 가능성이 높다","26수능 38번\n26수능 33번"],
-[107,"sufficient","충분한, 그만하면 넉넉한","형","가능성과 필요","sufficient opportunity to react\nnot sufficient for instructors","반응할 충분한 기회\n교수자에게 충분하지 않은","26수능 33번\n27.6모 20번"],
-[104,"necessary","필요한, 꼭 있어야 하는","형","가능성과 필요","subjects necessary to achieve architectural goals\nnecessary to establish and maintain","건축의 목표를 이루는 데 필요한 과목\n세우고 유지하는 데 필요한","25수능 21번 선지\n26수능 34번"],
-[105,"essential","필수적인, 없으면 안 되는","형","가능성과 필요","an essential component\nit is essential","없어서는 안 될 요소\n그것은 필수적이다","26.9모 35번\n27.9모 20번"],
-[106,"inevitable","불가피한, 피할 수 없는","형","가능성과 필요","inevitable progress\nan inevitable conflict","피할 수 없는 진보\n피할 수 없는 갈등","26수능 34번\n25수능 30번"],
+[102,"possible","가능한, 그럴 수도 있는","형","가능성·필요","the innovations made possible\nIt’s possible, indeed likely\nconflicts possible within a group","가능해진 혁신\n가능하다, 아니 실은 그럴 가능성이 높다\n집단 안에서 있을 수 있는 갈등","24수능 31번\n25.9모 22번\n26.9모 32번 선지"],
+[103,"likely","가능성이 높은, 그럴 것 같은","형","가능성·필요","are most likely related\nPeople are likely to be more satisfied","관련되어 있을 가능성이 가장 높다\n사람들은 더 만족할 가능성이 높다","26수능 38번\n26수능 33번"],
+[107,"sufficient","충분한, 그만하면 넉넉한","형","가능성·필요","sufficient opportunity to react\nnot sufficient for instructors","반응할 충분한 기회\n교수자에게 충분하지 않은","26수능 33번\n27.6모 20번"],
+[104,"necessary","필요한, 꼭 있어야 하는","형","가능성·필요","subjects necessary to achieve architectural goals\nnecessary to establish and maintain","건축의 목표를 이루는 데 필요한 과목\n세우고 유지하는 데 필요한","25수능 21번 선지\n26수능 34번"],
+[105,"essential","필수적인, 없으면 안 되는","형","가능성·필요","an essential component\nit is essential","없어서는 안 될 요소\n그것은 필수적이다","26.9모 35번\n27.9모 20번"],
+[106,"inevitable","불가피한, 피할 수 없는","형","가능성·필요","inevitable progress\nan inevitable conflict","피할 수 없는 진보\n피할 수 없는 갈등","26수능 34번\n25수능 30번"],
+[87,"only","단지, 오직","부","범위·정도","would only serve to divide audiences\nnot only increased","관객을 더 나누는 결과만 낳을 것이다\n늘렸을 뿐만 아니라","26수능 24번\n27.9모 22번"],
+[88,"all","모두, 전부","형,명","범위·정도","all of your attention\nAll-or-nothing criteria","당신의 모든 주의\n전부 아니면 전무인 기준","25수능 33번 선지\n25.6모 21번 선지"],
+[93,"always","언제나","부","범위·정도","not always the case\nAlways Take Priority","항상 그런 것은 아닌\n항상 우선하다","25수능 40번\n25.6모 41~42번 선지"],
+[94,"never","한 번도 ~않다","부","범위·정도","never being confronted with\nnever threaten the reader’s sense","결코 마주하지 않는 것\n독자의 감각을 결코 위협하지 않는다","24수능 21번 선지\n27.9모 33번"],
+[119,"rarely","좀처럼 ~않다 (유사: hardly, scarcely, seldom)","부","범위·정도","it’s rarely a battle between facts and anecdotes\nrarely confining one’s attention\nrarely originates from practical ideas","사실과 일화 사이의 싸움인 경우는 좀처럼 없다\n주의를 좀처럼 한정하지 않는 것\n실용적인 아이디어에서 나오는 일은 좀처럼 없다","26수능 38번\n24수능 21번 선지\n25.6모 32번 선지"],
+[89,"entirely","전적으로, 하나도 빠짐없이","부","범위·정도","remove a new pest entirely\nentirely on their own","새로운 해충을 완전히 없애다\n전적으로 혼자서","27.9모 30번\n27.6모 36번"],
+[90,"completely","완전히, 남김없이 온전히","부","범위·정도","completely without your awareness\ndisappear completely","당신이 전혀 알아차리지 못한 채\n완전히 사라지다","25수능 29번\n26.6모 35번"],
+[91,"exclusively","오로지, 오직 그것만","부","범위·정도","focus exclusively on test scores","오직 시험 점수에만 집중하다","만든 예시"],
+[92,"universally","보편적으로, 어디서나 예외 없이","부","범위·정도","almost universally accept","거의 모두가 받아들이다","25수능 20번"],
+[95,"generally","대개, 일반적으로","부","범위·정도","generally associated with\ngenerally less noticeable","일반적으로 ~와 관련된\n대개 덜 눈에 띄는","25수능 30번\n27.9모 32번"],
+[96,"largely","대부분, 주로","부","범위·정도","largely been ignored\nlargely in the business of","대체로 무시되어 왔다\n주로 ~하는 사업을 하는","26수능 20번\n27.6모 24번"],
+[97,"primarily","무엇보다 주로","부","범위·정도","perceiving primarily through interaction\nprimarily conducted","주로 상호작용을 통해 인식하는 것\n주로 수행된","26수능 39번\n25.9모 21번"],
+[99,"relatively","상대적으로, 다른 것에 비해","부","범위·정도","relatively remote locations","비교적 외딴 곳","25수능 35번"],
+[98,"partly","부분적으로, 일부만","부","범위·정도","partly responsible for the problem","그 문제에 일부 책임이 있는","만든 예시"],
+[100,"gradually","점진적으로, 조금씩 차츰","부","범위·정도","gradually take fuller ownership","차츰 더 온전한 주도권을 갖다","27.6모 20번"],
+[101,"immediately","바로, 곧장","부","범위·정도","Mia immediately shook her head\nacting immediately","Mia는 바로 고개를 저었다\n바로 행동하는 것","26수능 43~45번\n27.9모 32번 선지"],
+[112,"include","안에 넣다, 포함하다 (↔ exclude: 제외하다)","동","범위·정도","Consequences of this emotional state include lower task motivation\nincluding climate regulation, water purification\nincluding biodiversity","이 감정 상태의 결과에는 더 낮은 과제 동기가 포함된다\n기후 조절과 수질 정화를 포함하여\n생물 다양성을 포함하여","25수능 30번\n24수능 23번\n27.9모 38번"],
+[108,"significant","무시 못 할 만큼 큰, 중요한","형","범위·정도","significant changes\nless significant","상당한 변화\n덜 중요한","27.9모 20번\n27.9모 24번"],
 [51,"cause","원인, 일으키다","명,동","관계","identify the cause of stress\ncauses and consequences of emotion","스트레스의 원인을 찾다\n감정의 원인과 결과","24수능 21번 선지\n25수능 22번"],
 [52,"result","결과, 결과로 생기다","명,동","관계","result from variable weather patterns\na result of life-threatening emergencies","변덕스러운 날씨 패턴에서 비롯되다\n생명을 위협하는 응급 상황의 결과","26수능 31번\n26수능 33번"],
 [53,"lead","이끌다, 결국 ~에 이르게 하다","동","관계","lead people to reevaluate their roles\nlead to a dilution of audiences\nwill lead to immediate profits","사람들이 자기 역할을 다시 평가하게 하다\n관객층이 옅어지는 결과를 낳다\n즉각적인 이익으로 이어질 것이다","25수능 34번 선지\n26수능 24번\n27.6모 34번 선지"],
@@ -1802,28 +1808,28 @@ const SJ = [
 [59,"separate","따로 떼다, 분리된","동,형","관계","separate from the player’s external reality\nSeparate to Combined","플레이어의 외부 현실과 분리된\n분리에서 결합으로","26수능 39번\n27.6모 24번 선지"],
 [61,"conflict","부딪침, 갈등","명","관계","group conflict situation\nthe invisible conflicts possible within a group","집단 갈등 상황\n집단 안에서 일어날 수 있는 보이지 않는 갈등","25수능 22번\n26.9모 32번 선지"],
 [62,"contrast","대비, 대비되다","명,동","관계","contrasting realities\nBy contrast","대비되는 현실\n그와 달리","26수능 30번\n26수능 40번"],
-[65,"identify","식별하다, 무엇인지 알아내다","동","머리쓰기","asked to identify the expression\nidentified tonal differences","표정을 알아내도록 요청받은\n음조의 차이를 알아냈다","24수능 33번\n26.9모 21번 선지"],
-[66,"distinguish","구별하다, 차이를 가려내다","동","머리쓰기","no way to distinguish bad apples","문제 있는 사람을 가려낼 방법이 없는","26.9모 20번"],
-[67,"differentiate","구분하다, 서로 다르다고 나누어 보다","동","머리쓰기","differentiate facts from opinions","사실과 의견을 구분하다","만든 예시"],
-[68,"classify","분류하다, 기준에 맞춰 나누다","동","머리쓰기","classify animals by habitat","서식지에 따라 동물을 분류하다","만든 예시"],
-[69,"categorize","범주화하다, 같은 부류끼리 묶다","동","머리쓰기","categorize one’s patterns of conduct","사람의 행동 양식을 범주로 나누다","25수능 34번 선지"],
-[70,"compare","비교하다, 견주어 보다","동","머리쓰기","as compared with the percentages\ncomparing similarities and differences","비율과 비교했을 때\n공통점과 차이점을 비교하는 것","25수능 27번\n27.6모 33번"],
-[82,"distinction","구별, 차이, 뚜렷한 차이","명","머리쓰기","One very important distinction","아주 중요한 차이 하나","25.9모 40번"],
-[71,"interpret","해석하다, 뜻을 풀어 읽다","동","머리쓰기","interpret one’s nonverbal behavior","사람의 비언어적 행동을 해석하다","27.6모 32번 선지"],
-[72,"evaluate","평가하다, 값어치를 따져 보다","동","머리쓰기","being evaluated by other people","다른 사람에게 평가받는 것","27.9모 31번"],
-[73,"judge","옳고 그름을 가리다, 판단하다","동","머리쓰기","when judging whether it is ethical\nfully judge the claims","그것이 윤리적인지 판단할 때\n그 주장을 충분히 판단하다","26수능 30번\n27.9모 41~42번"],
-[76,"perceive","인식하다, 알아차리다, ~로 여기다","동","머리쓰기","can be perceived\nperceived as lacking order","인식될 수 있다\n질서가 없다고 여겨지는","26수능 39번\n27.9모 39번"],
-[80,"recognize","알아보다, 인정하다","동","머리쓰기","recognize the limitations of writing\nfailed to recognize the influence","글쓰기의 한계를 인정하다\n영향력을 인정하지 못했다","26수능 32번 선지\n26수능 20번"],
-[81,"understand","이해하다","동","머리쓰기","understood as a restraint\na useful way to understand the dynamic nature","제약으로 이해되는\n역동적인 성격을 이해하는 유용한 방법","26수능 34번 선지\n26수능 22번"],
-[74,"assume","가정하다, 맞다고 미리 생각하다","동","머리쓰기","People often assume that","사람들은 흔히 ~라고 생각한다","25수능 40번"],
-[75,"assumption","맞다고 미리 생각한 것, 가정","명","머리쓰기","within the assumption of ideal legal frameworks\nchallenging established assumptions","이상적인 법 체계라는 가정 안에서\n굳어진 가정에 이의를 제기하는 것","26수능 34번 선지\n26수능 37번"],
-[86,"anticipate","예상하다, 미리 내다보다","동","머리쓰기","anticipate the absent reader’s response\nbetter at anticipating stimuli","자리에 없는 독자의 반응을 내다보다\n자극을 더 잘 예상하는","26수능 32번 선지\n27.9모 32번 선지"],
-[85,"challenge","도전, 이의를 제기하다","명,동","머리쓰기","challenging established assumptions\nNew Challenges Facing Service Providers","굳어진 가정에 이의를 제기하는 것\n서비스 제공자가 마주한 새로운 난제","26수능 37번\n27.6모 24번 선지"],
-[77,"define","뜻을 정하다, 규정하다","동","머리쓰기","is defined as\nclearly defined","~로 정의된다\n뚜렷하게 규정된","26수능 22번\n24수능 24번"],
-[78,"characterize","특징짓다, 특징을 들어 설명하다","동","머리쓰기","characterized by rapid change","빠른 변화가 특징인","만든 예시"],
-[79,"generalize","일반화하다, 몇 가지로 전체를 말하다","동","머리쓰기","generalize from a few cases","몇 가지 사례로 전체를 일반화하다","만든 예시"],
-[83,"perspective","관점, 보는 시각","명","머리쓰기","share their perspectives\nalternative perspective","그들의 시각을 나누다\n대안적인 시각","26수능 33번 선지\n25수능 31번 선지"],
-[84,"context","앞뒤 상황, 맥락","명","머리쓰기","legal and established contexts\nIn all other contexts","법적이고 확립된 맥락\n다른 모든 상황에서는","25수능 34번 선지\n26수능 23번"]];
+[65,"identify","식별하다, 무엇인지 알아내다","동","사고·추론","asked to identify the expression\nidentified tonal differences","표정을 알아내도록 요청받은\n음조의 차이를 알아냈다","24수능 33번\n26.9모 21번 선지"],
+[66,"distinguish","구별하다, 차이를 가려내다","동","사고·추론","no way to distinguish bad apples","문제 있는 사람을 가려낼 방법이 없는","26.9모 20번"],
+[67,"differentiate","구분하다, 서로 다르다고 나누어 보다","동","사고·추론","differentiate facts from opinions","사실과 의견을 구분하다","만든 예시"],
+[68,"classify","분류하다, 기준에 맞춰 나누다","동","사고·추론","classify animals by habitat","서식지에 따라 동물을 분류하다","만든 예시"],
+[69,"categorize","범주화하다, 같은 부류끼리 묶다","동","사고·추론","categorize one’s patterns of conduct","사람의 행동 양식을 범주로 나누다","25수능 34번 선지"],
+[70,"compare","비교하다, 견주어 보다","동","사고·추론","as compared with the percentages\ncomparing similarities and differences","비율과 비교했을 때\n공통점과 차이점을 비교하는 것","25수능 27번\n27.6모 33번"],
+[82,"distinction","구별, 차이, 뚜렷한 차이","명","사고·추론","One very important distinction","아주 중요한 차이 하나","25.9모 40번"],
+[71,"interpret","해석하다, 뜻을 풀어 읽다","동","사고·추론","interpret one’s nonverbal behavior","사람의 비언어적 행동을 해석하다","27.6모 32번 선지"],
+[72,"evaluate","평가하다, 값어치를 따져 보다","동","사고·추론","being evaluated by other people","다른 사람에게 평가받는 것","27.9모 31번"],
+[73,"judge","옳고 그름을 가리다, 판단하다","동","사고·추론","when judging whether it is ethical\nfully judge the claims","그것이 윤리적인지 판단할 때\n그 주장을 충분히 판단하다","26수능 30번\n27.9모 41~42번"],
+[76,"perceive","인식하다, 알아차리다, ~로 여기다","동","사고·추론","can be perceived\nperceived as lacking order","인식될 수 있다\n질서가 없다고 여겨지는","26수능 39번\n27.9모 39번"],
+[80,"recognize","알아보다, 인정하다","동","사고·추론","recognize the limitations of writing\nfailed to recognize the influence","글쓰기의 한계를 인정하다\n영향력을 인정하지 못했다","26수능 32번 선지\n26수능 20번"],
+[81,"understand","이해하다","동","사고·추론","understood as a restraint\na useful way to understand the dynamic nature","제약으로 이해되는\n역동적인 성격을 이해하는 유용한 방법","26수능 34번 선지\n26수능 22번"],
+[74,"assume","가정하다, 맞다고 미리 생각하다","동","사고·추론","People often assume that","사람들은 흔히 ~라고 생각한다","25수능 40번"],
+[75,"assumption","맞다고 미리 생각한 것, 가정","명","사고·추론","within the assumption of ideal legal frameworks\nchallenging established assumptions","이상적인 법 체계라는 가정 안에서\n굳어진 가정에 이의를 제기하는 것","26수능 34번 선지\n26수능 37번"],
+[86,"anticipate","예상하다, 미리 내다보다","동","사고·추론","anticipate the absent reader’s response\nbetter at anticipating stimuli","자리에 없는 독자의 반응을 내다보다\n자극을 더 잘 예상하는","26수능 32번 선지\n27.9모 32번 선지"],
+[85,"challenge","도전, 이의를 제기하다","명,동","사고·추론","challenging established assumptions\nNew Challenges Facing Service Providers","굳어진 가정에 이의를 제기하는 것\n서비스 제공자가 마주한 새로운 난제","26수능 37번\n27.6모 24번 선지"],
+[77,"define","뜻을 정하다, 규정하다","동","사고·추론","is defined as\nclearly defined","~로 정의된다\n뚜렷하게 규정된","26수능 22번\n24수능 24번"],
+[78,"characterize","특징짓다, 특징을 들어 설명하다","동","사고·추론","characterized by rapid change","빠른 변화가 특징인","만든 예시"],
+[79,"generalize","일반화하다, 몇 가지로 전체를 말하다","동","사고·추론","generalize from a few cases","몇 가지 사례로 전체를 일반화하다","만든 예시"],
+[83,"perspective","관점, 보는 시각","명","사고·추론","share their perspectives\nalternative perspective","그들의 시각을 나누다\n대안적인 시각","26수능 33번 선지\n25수능 31번 선지"],
+[84,"context","앞뒤 상황, 맥락","명","사고·추론","legal and established contexts\nIn all other contexts","법적이고 확립된 맥락\n다른 모든 상황에서는","25수능 34번 선지\n26수능 23번"]];
 
 
 // ---------- 데이터 정리 ----------
@@ -1858,10 +1864,10 @@ function exHtml(x, s = x.ex) {
   const pattern = words.length > 1
     ? words.map(w => stemOf(w) + '[a-z]*').join('\\s+')
     : stemOf(words[0].split('-')[0]) + '[a-z-]*';
-  const irregular = { understand: 'understood|understand[a-z]*' };
+  const irregular = { understand: 'understood|understand[a-z]*', stable: 'unstable|stab[a-z]*' };
   return esc(s).replace(new RegExp('\\b(' + (x.deck === 'sj' && irregular[x.w] || pattern) + ')', 'i'), '<b class="hw">$1</b>');
 }
-// 선지 단어의 출처: 수능은 눈에 띄게
+// 핵심어휘의 출처: 수능은 눈에 띄게
 const srcBadge = s => s ? ` <span class="sj-src${s.includes('수능') ? ' su' : ''}">${esc(s)}</span>` : '';
 const inSuneung = x => x.srcs && x.srcs.some(s => s.includes('수능'));
 // 예시 + 해석. 자·타 단어처럼 예문이 여러 줄(\n)이면 줄마다 영어·해석을 짝지어 보여 준다
@@ -1879,21 +1885,24 @@ function richMeaning(x) {
   return h;
 }
 
-// 선지 단어 묶음과 보는 법
+// 핵심어휘 묶음과 보는 법
 const SJ_GROUPS = [
   ['올리기', '좋아지거나 늘어나는 쪽이에요. 본문이 줄어드는 이야기라면 방향이 반대예요.'],
   ['내리기', '줄어들거나 막는 쪽이에요. 올리기과 뒤바뀌지 않았는지 보세요.'],
   ['변화', '달라지는 이야기예요. 본문은 그대로라는데 선지가 이 말을 쓰면 방향이 반대예요.'],
   ['유지', '달라지지 않고 그대로인 이야기예요. 변화와 뒤바뀌지 않았는지 보세요.'],
   ['세기', '뜻이 강해요. 약한 말이 센 말로 바뀌면 오답인지 의심하세요. (influence → determine, limit → eliminate, change → replace, partly → completely, possible → inevitable)'],
-  ['범위와 정도', '얼마나, 어디까지인지 말해요. 작은 말이지만 선지의 맞고 틀림을 바꿀 수 있어요.'],
-  ['가능성과 필요', '그럴 수도 있는 것과 반드시 그런 것은 달라요.'],
+  ['가능성·필요', '그럴 수도 있는 것과 반드시 그런 것은 달라요.'],
+  ['범위·정도', '얼마나, 어디까지인지 말해요. 작은 말이지만 선지의 맞고 틀림을 바꿀 수 있어요.'],
   ['관계', '무엇이 원인이고 결과인지, 붙는 것인지 떨어지는 것인지 보세요.'],
-  ['머리쓰기', '알아보고, 나누고, 따지는 행동을 나타내요. 뜻을 정확히 구별해 두세요.'],
+  ['사고·추론', '알아보고, 나누고, 따지는 행동을 나타내요. 뜻을 정확히 구별해 두세요.'],
 ];
 
 // ---------- 범위 ----------
 const RANGES = [];
+RANGES.push({ key: 'sj', label: '핵심어휘 — 전체', ids: () => WORDS.filter(x => x.deck === 'sj') });
+SJ_GROUPS.forEach(([c]) =>
+  RANGES.push({ key: 'sj-' + c, label: '핵심어휘 — ' + c, ids: () => WORDS.filter(x => x.deck === 'sj' && x.cat === c) }));
 RANGES.push({ key: 'jl', label: '고빈출 400 — 전체', ids: () => WORDS.filter(x => x.deck === 'jl') });
 for (let d = 0; d < 8; d++) {
   const a = d * 50 + 1, b = a + 49;
@@ -1906,12 +1915,9 @@ RANGES.push({ key: 'mo', label: '6/9모 어휘 — 전체', ids: () => WORDS.fil
 RANGES.push({ key: 'jd', label: '자동사 48 — 전체', ids: () => WORDS.filter(x => x.deck === 'jd') });
 [['순수 자동사', '자동사 — ① 순수 자동사'], ['자·타 둘 다', '자동사 — ② 자·타 둘 다']].forEach(([c, label]) =>
   RANGES.push({ key: 'jd-' + c, label, ids: () => WORDS.filter(x => x.deck === 'jd' && x.cat === c) }));
-RANGES.push({ key: 'sj', label: '선지 단어 — 전체', ids: () => WORDS.filter(x => x.deck === 'sj') });
-SJ_GROUPS.forEach(([c]) =>
-  RANGES.push({ key: 'sj-' + c, label: '선지 단어 — ' + c, ids: () => WORDS.filter(x => x.deck === 'sj' && x.cat === c) }));
 RANGES.push({ key: 'star', label: '★ 별표한 단어', ids: () => WORDS.filter(x => st(x).star) });
 RANGES.push({ key: 'wrong', label: '✗ 퀴즈에서 틀린 단어', ids: () => WORDS.filter(x => st(x).wrong > 0) });
-RANGES.push({ key: 'all', label: '전체 단어 (고빈출 + 6/9모 + 자동사 + 선지)', ids: () => WORDS });
+RANGES.push({ key: 'all', label: '전체 단어 (핵심어휘 + 고빈출 + 6/9모 + 자동사)', ids: () => WORDS });
 
 // ---------- 저장 ----------
 const KEY = 'suneung-vocab-v1';
@@ -1938,7 +1944,7 @@ function speak(text) {
 
 // ---------- 공통 ----------
 const $ = s => document.querySelector(s);
-const curRange = () => RANGES.find(r => r.key === S.range) || RANGES[1];
+const curRange = () => RANGES.find(r => r.key === S.range) || RANGES.find(r => r.key === 'jl1');
 const pool = () => curRange().ids();
 
 function renderRangeSelect() {
@@ -2007,7 +2013,7 @@ $('#q').addEventListener('input', renderList);
 $('#filter').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; S.filter = b.dataset.f; save(); renderList(); });
 $('#hideBtn').addEventListener('click', () => { S.hide = !S.hide; save(); renderList(); });
 
-// ---------- 선지 단어 ----------
+// ---------- 핵심어휘 ----------
 let sjGroup = '', sjSuOnly = false;
 $('#sjGroups').innerHTML = [['', '전체'], ...SJ_GROUPS.map(([c]) => [c, c])].map(([k, t]) => `<button data-g="${k}" class="${k ? '' : 'on'}">${t}</button>`).join('');
 function renderSj() {
@@ -2188,7 +2194,7 @@ function switchTab(t) {
   S.tab = t; save();
   document.querySelectorAll('nav.tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === t));
   ['sj', 'list', 'card', 'quiz', 'concept'].forEach(k => $('#tab-' + k).hidden = k !== t);
-  // 개념·선지 단어 탭에는 학습 범위·기록이 필요 없음
+  // 개념·핵심어휘 탭에는 학습 범위·기록이 필요 없음
   $('#rangePanel').hidden = $('#foot').hidden = t === 'concept' || t === 'sj';
   if (t === 'card') { buildDeck(true); renderCard(); }
   if (t === 'quiz') { quiz = null; renderQuizSetup(); }
